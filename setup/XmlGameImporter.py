@@ -50,7 +50,7 @@ def validate_xml_node_children(xmlnode, children, nodename):
     
     return errors
 
-def validate_xml_box_file(filepath):
+def validate_xml_box_file_old(filepath):
     errors = []
     
     try:
