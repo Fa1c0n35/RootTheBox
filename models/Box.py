@@ -108,6 +108,10 @@ class Box(BaseObject):
             return dbsession.query(cls).filter_by(id=db_ip.box_id).first()
         else:
             return None
+    
+    @property
+    def description_nomod(self):
+        return self._description + '\n    Reported difficulty: ' + self.difficulty + '\n'
 
     @property
     def description(self):
