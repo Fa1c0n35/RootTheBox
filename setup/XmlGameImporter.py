@@ -172,7 +172,7 @@ def import_xml_box_file(filepath, input_game_level_id):
         
         # Check to see if box already exists
         bname = boxnode.find('name').text
-        if len(Box.by_name(unicode(bname))) is not 0:
+        if Box.by_name(unicode(bname)) is not None:
             print_info("Box with name '" + bname + "' already exists. Continuing to next file...")
             return
         
@@ -292,14 +292,14 @@ def import_xml_box_file(filepath, input_game_level_id):
         # And we're done!
         print_info("Box with name '" + bname + "' successfully created!")
         
+    except TypeError as e:
+        print "TypeError thrown: " + str(e)
     except ProgrammingError as e:
         print "ProgrammingError thrown: " + str(e)
     except IntegrityError as e:
         print "IntegrityError thrown: " + str(e)
     except OperationalError as e:
         print "OperationalError thrown: " + str(e)
-    except ET.ParseError as e:
-        print "ParseError thrown: " + str(e)
     except:
         print_warning_and_exit("Unexpected error:" + str(sys.exc_info()[0]))
 
