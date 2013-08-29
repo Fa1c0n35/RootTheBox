@@ -158,9 +158,9 @@ class EventManager(object):
         return (self.push_broadcast_notification, {'event_uuid': evt_id})
 
     # [ Team Events ] ------------------------------------------------------
-    def create_joined_team_event(self, user):
+    def create_joined_team_event(self, user, use_teams=True):
         ''' Callback when a user joins a team'''
-        if ConfigManager.Instance().use_teams:
+        if use_teams:
             message = "%s has joined your team." % user.handle
             evt_id = Notifier.team_success(user.team, "New Team Member", message)
             return (self.push_team_notification, {
@@ -169,12 +169,12 @@ class EventManager(object):
             })
         else:
             message = "%s has joined the game." % user.handle
-            evt_id = Notifier.broadcast_success("New Team Member", message)
+            evt_id = Notifier.broadcast_success("New Player", message)
             return (self.push_broadcase_notification, {'event_uuid': evt_id})
 
-    def create_team_file_share_event(self, user, file_upload):
+    def create_team_file_share_event(self, user, file_upload, use_teams=True):
         ''' Callback when a team file share is created '''
-        if ConfigManager.Instance().use_teams:
+        if use_teams:
             message = "%s has shared a file called '%s'" % (
                 user.handle, file_upload.file_name,
             )
@@ -190,9 +190,9 @@ class EventManager(object):
             evt_id = Notifier.broadcast_success("File Share", message)
             return (self.push_broadcase_notification, {'event_uuid': evt_id})
 
-    def create_paste_bin_event(self, user, paste):
+    def create_paste_bin_event(self, user, paste, use_teams=True):
         ''' Callback when a pastebin is created '''
-        if ConfigManager.Instance().use_teams:
+        if use_teams:
             message = "%s posted to the team paste-bin" % user.handle
             evt_id = Notifier.team_success(user.team, "Text Share", message)
             return (self.push_team_notification, {

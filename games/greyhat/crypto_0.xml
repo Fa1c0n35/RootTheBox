@@ -1,6 +1,14 @@
 <?xml version="1.0"?>
 <box>
 	<level>1</level>
+	<sponsor>
+		<name>lavalamp</name>
+		<description>
+			Hacker by day, hacker by night, lavalamp is an avid computing enthusiast and security analyst.
+		</description>
+		<url>https://greyhat.gatech.edu</url>
+		<logo>lavalamp.jpg</logo>
+	</sponsor>
 	<corporation>
 		<name>Cryptographers Anonymous</name>
 		<description>A global support group for people that enjoy cryptography a little more than they should</description>

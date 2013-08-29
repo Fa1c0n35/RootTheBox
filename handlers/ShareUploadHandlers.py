@@ -63,7 +63,7 @@ class ShareUploadHandler(BaseHandler):
             )
         else:
             file_upload = self.create_file(user)
-            event = self.event_manager.create_team_file_share_event(user, file_upload)
+            event = self.event_manager.create_team_file_share_event(user, file_upload, self.config.use_teams)
             self.new_events.append(event)
             self.redirect("/user/share/files")
 

@@ -238,7 +238,7 @@ class RegistrationHandler(BaseHandler):
             dbsession.add(token)
         dbsession.add(user)
         dbsession.flush()
-        event = self.event_manager.create_joined_team_event(user)
+        event = self.event_manager.create_joined_team_event(user, self.config.use_teams)
         self.new_events.append(event)
         return user
 

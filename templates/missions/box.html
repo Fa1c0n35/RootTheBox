@@ -214,6 +214,21 @@
         		</table>
         	</div>
         {% end %}
+        {% if box.sponsor is not none %}
+        	<br />
+        	<div class="well">
+        		<h4>- This box is sponsored by {{ box.sponsor.name }} -</h4>
+        		<div class='divSponsorContainer' style='height:300px; width:auto; overflow:auto;'>
+        			<div class='divSponsorLogo' style='background-repeat:no-repeat; background-position:center center; background-size:300px auto;
+        			background-image:url('/avatars/{{ box.sponsor.logo }}'); width:300px; height:300px; float:left'></div>
+        			<div>
+        				{{ box.sponsor.description }}
+        				<br />
+        				For more information please visit {{ box.sponsor.url }}
+        			</div>
+        		</div>
+        	</div>
+        {% end %}
         {% if len(box.hints) != 0 %}
             <br />
             <div class="well">
