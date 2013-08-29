@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <box>
-	<level>0</level>
+	<level>1</level>
 	<corporation>
 		<name>Cryptographers Anonymous</name> <!-- REQUIRED !-->
 		<description>A global support group for people that enjoy cryptography a little more than they should</description> <!-- REQUIRED !-->

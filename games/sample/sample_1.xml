@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <box>
-	<level>0</level>
+	<level>1</level>
 	<sponsor> <!-- REQUIRED !-->
 		<name>Sponsoring Company</name> <!-- REQUIRED !-->
 		<description>The sponsoring company is a great company</description> <!-- REQUIRED !-->

@@ -150,7 +150,7 @@ def import_xml_box_files_for_game(game_name, input_game_level_id):
     game_dir = path.abspath('games/' + game_name)
     for curfile in listdir(game_dir):
         if curfile.endswith('.xml'):
-            import_xml_box_file(game_dir + '/' + curfile, input_game_level_id)
+            import_xml_box_file(game_dir + '/' + curfile)
 
 #TODO implement IP address
 #TODO validate level as well
@@ -244,9 +244,11 @@ def import_xml_box_file(filepath):
             difficulty=unicode(bdiff),
             game_level_id=abs(int(blevel)),
             _description=unicode(bdesc),
-            avatar=unicode(bavatarmoved),
-            sponsor_id=spon.id
+            avatar=unicode(bavatarmoved)
         )
+
+        if spon is not None:
+            box.sponsor_id = spon.id
         
         dbsession.add(box)
         dbsession.flush()
@@ -294,6 +296,8 @@ def import_xml_box_file(filepath):
         # And we're done!
         print_info("Box with name '" + bname + "' successfully created!")
         
+    except AttributeError as e:
+        print "AttributeError thrown: " + str(e)
     except TypeError as e:
         print "TypeError thrown: " + str(e)
     except ProgrammingError as e:
