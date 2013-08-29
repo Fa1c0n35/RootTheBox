@@ -153,7 +153,8 @@ def import_xml_box_files_for_game(game_name, input_game_level_id):
             import_xml_box_file(game_dir + '/' + curfile, input_game_level_id)
 
 #TODO implement IP address
-def import_xml_box_file(filepath, input_game_level_id):
+#TODO validate level as well
+def import_xml_box_file(filepath):
     
     print_info("Starting import of file " + filepath)
     
@@ -232,6 +233,7 @@ def import_xml_box_file(filepath, input_game_level_id):
         bdiff = boxnode.find('difficulty').text
         bavatar = boxnode.find('avatar').text
         bdesc = boxnode.find('description').text
+        blevel = boxnode.find('level').text
         
         # Move the box's avatar
         bavatarmoved = move_image_file_and_get_name(filedir + '/' + bavatar)
@@ -240,7 +242,7 @@ def import_xml_box_file(filepath, input_game_level_id):
             name=unicode(bname),
             corporation_id=corp.id,
             difficulty=unicode(bdiff),
-            game_level_id=input_game_level_id,
+            game_level_id=abs(int(blevel)),
             _description=unicode(bdesc),
             avatar=unicode(bavatarmoved),
             sponsor_id=spon.id
