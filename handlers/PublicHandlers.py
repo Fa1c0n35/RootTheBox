@@ -220,7 +220,6 @@ class RegistrationHandler(BaseHandler):
         
         # Upload an avatar and set it for the user if available
         # This assumes proper input validation and sanitization has occurred
-        logging.info("Contents of self.request.files: " + str(self.request.files))
         logging.info("Now testing if avatar is in self.request.files")
         if 'avatar' in self.request.files:
             logging.info("Avatar IS in self.request.files. Moving on...")

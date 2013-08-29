@@ -188,7 +188,7 @@ class EventManager(object):
                 user.handle, file_upload.file_name,
             )
             evt_id = Notifier.broadcast_success("File Share", message)
-            return (self.push_broadcase_notification, {'event_uuid': evt_id})
+            return (self.push_broadcast_notification, {'event_uuid': evt_id})
 
     def create_paste_bin_event(self, user, paste, use_teams=True):
         ''' Callback when a pastebin is created '''
@@ -202,7 +202,7 @@ class EventManager(object):
         else:
             message = "%s posted to the team paste-bin" % user.handle
             evt_id = Notifier.broadcast_success("Text Share", message)
-            return (self.push_broadcase_notification, {'event_uuid': evt_id})
+            return (self.push_broadcast_notification, {'event_uuid': evt_id})
 
     # [ Misc Events ] ------------------------------------------------------
     def create_cracked_password_events(self, cracker, victim, password, value):
