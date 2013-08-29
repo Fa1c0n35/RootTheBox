@@ -350,11 +350,6 @@ class ConfigManager(object):
     def use_wall_of_sheep(self):
         ''' Whether the black market should be enabled in this game '''
         return self.config.getboolean("Experimental", "use_wall_of_sheep")
-    
-    @property
-    def show_box_corporation_names(self):
-        ''' Whether or not to show corporation names on the missions screen '''
-        return self.config.getboolean("Experimental", "show_box_corporation_names")
 
     def __postgresql__(self):
         ''' 
