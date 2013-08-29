@@ -170,7 +170,7 @@ class EventManager(object):
         else:
             message = "%s has joined the game." % user.handle
             evt_id = Notifier.broadcast_success("New Player", message)
-            return (self.push_broadcase_notification, {'event_uuid': evt_id})
+            return (self.push_broadcast_notification, {'event_uuid': evt_id})
 
     def create_team_file_share_event(self, user, file_upload, use_teams=True):
         ''' Callback when a team file share is created '''

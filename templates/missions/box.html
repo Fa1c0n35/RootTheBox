@@ -206,7 +206,7 @@
         			{% for index, res in enumerate(box.box_resources) %}
         				<tr>
         					<td>{{ index + 1 }}</td>
-        					<td><a href='{{ res.url }}'>{{ res.tag }}</a></td>
+        					<td><a href='{{ res.url }}' target='_blank'>{{ res.tag }}</a></td>
         					<td>{{ res.description }}</td>
         				</tr>
         			{% end %}
@@ -214,17 +214,18 @@
         		</table>
         	</div>
         {% end %}
-        {% if box.sponsor is not none %}
+        {% if box.sponsor is not None %}
         	<br />
         	<div class="well">
-        		<h4>- This box is sponsored by {{ box.sponsor.name }} -</h4>
-        		<div class='divSponsorContainer' style='height:300px; width:auto; overflow:auto;'>
+        		<h4 style='text-align:center'>- This box is sponsored by {{ box.sponsor.name }} -</h4>
+        		<div class='divSponsorContainer' style='height:210px; width:auto; overflow:auto; margin-top:25px'>
         			<div class='divSponsorLogo' style='background-repeat:no-repeat; background-position:center center; background-size:300px auto;
-        			background-image:url('/avatars/{{ box.sponsor.logo }}'); width:300px; height:300px; float:left'></div>
-        			<div>
+        			background-image:url("/avatars/{{ box.sponsor.logo }}"); width:300px; height:200px; float:left; border:1px solid gray'></div>
+        			<div style='margin-left:20px; width:550px; float:left; padding-top:5px;'>
         				{{ box.sponsor.description }}
         				<br />
-        				For more information please visit {{ box.sponsor.url }}
+                                        <br />
+        				For more information please visit <a href='{{ box.sponsor.url }}' target='_blank'>{{ box.sponsor.url }}</a>
         			</div>
         		</div>
         	</div>
