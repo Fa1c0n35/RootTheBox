@@ -160,7 +160,7 @@ class EventManager(object):
     # [ Team Events ] ------------------------------------------------------
     def create_joined_team_event(self, user):
         ''' Callback when a user joins a team'''
-        if ConfigManager.use_teams():
+        if ConfigManager.Instance().use_teams:
             message = "%s has joined your team." % user.handle
             evt_id = Notifier.team_success(user.team, "New Team Member", message)
             return (self.push_team_notification, {
@@ -174,7 +174,7 @@ class EventManager(object):
 
     def create_team_file_share_event(self, user, file_upload):
         ''' Callback when a team file share is created '''
-        if ConfigManager.use_teams():
+        if ConfigManager.Instance().use_teams:
             message = "%s has shared a file called '%s'" % (
                 user.handle, file_upload.file_name,
             )
@@ -192,7 +192,7 @@ class EventManager(object):
 
     def create_paste_bin_event(self, user, paste):
         ''' Callback when a pastebin is created '''
-        if ConfigManager.use_teams():
+        if ConfigManager.Instance().use_teams:
             message = "%s posted to the team paste-bin" % user.handle
             evt_id = Notifier.team_success(user.team, "Text Share", message)
             return (self.push_team_notification, {
