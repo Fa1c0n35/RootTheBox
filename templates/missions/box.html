@@ -126,10 +126,15 @@
         {% end %}
         <div class="container">
             <div class="row">
+            {% from libs.ConfigManager import ConfigManager %}
+            {% if ConfigManager.show_box_avatar %}
                 <div class="span4">
                     <img src="/avatars/{{ box.avatar }}" class="img-polaroid" />
                 </div>
                 <div class="span8">
+            {% else %}
+                <div class="span12">
+            {% end %}
                     <pre style='white-space: pre-wrap'> *********************** BEGIN SECURE COMMUNIQUE ***********************
 {{ box.description_nomod }}
 &nbsp;***********************&nbsp;&nbsp;END SECURE COMMUNIQUE&nbsp;&nbsp;***********************</pre>

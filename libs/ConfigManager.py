@@ -351,6 +351,11 @@ class ConfigManager(object):
         ''' Whether the black market should be enabled in this game '''
         return self.config.getboolean("Experimental", "use_wall_of_sheep")
 
+    @property
+    def show_box_avatar(self):
+        ''' Whether to show the box avatar on the box screen '''
+        return self.config.getboolean('Experimental', 'show_box_avatar')
+
     def __postgresql__(self):
         ''' 
         Configure to use postgresql, there is not built-in support for postgresql

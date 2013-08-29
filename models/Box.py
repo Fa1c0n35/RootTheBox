@@ -111,7 +111,7 @@ class Box(BaseObject):
     
     @property
     def description_nomod(self):
-        return self._description + '\n    Reported difficulty: ' + self.difficulty + '\n'
+        return self._description + '\nReported difficulty: ' + self.difficulty + '\n'
 
     @property
     def description(self):
