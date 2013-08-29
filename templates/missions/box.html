@@ -131,7 +131,9 @@
                 </div>
                 <div class="span8">
                     <pre> *********************** BEGIN SECURE COMMUNIQUE ***********************
-{{ box.description }}
+{% import re %}
+{% htmldesc = re.sub(r"\r\n?", "<br/>", box.description) %}
+{{ htmldesc }}
 &nbsp;***********************&nbsp;&nbsp;END SECURE COMMUNIQUE&nbsp;&nbsp;***********************</pre>
                 </div>
             </div>

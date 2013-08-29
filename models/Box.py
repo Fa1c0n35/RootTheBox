@@ -47,7 +47,7 @@ class Box(BaseObject):
         nullable=False, 
         default=lambda: urandom(16).encode('hex')
     )
-    _description = Column(Unicode(1024))
+    _description = Column(Unicode(16384))
     difficulty = Column(Unicode(16), nullable=False)
     game_level_id = Column(Integer, ForeignKey('game_level.id'), nullable=False)
     avatar = Column(Unicode(64), default=u"default_avatar.jpeg")

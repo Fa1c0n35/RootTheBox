@@ -33,7 +33,7 @@ from models.BaseGameObject import BaseObject
 class Corporation(BaseObject):
     ''' Corporation definition '''
 
-    name = Column(Unicode(32), unique=True, nullable=False)
+    name = Column(Unicode(64), unique=True, nullable=False)
     uuid = Column(String(36), unique=True, nullable=False, default=lambda: str(uuid4()))
     description = Column(Unicode(1024), nullable=False)
     boxes = relationship("Box", 
