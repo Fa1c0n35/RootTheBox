@@ -31,15 +31,27 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-            	<li class="nav-header">Team Shares</li>
-            	{% from models import PasteBin %}
-            	{% if len(PasteBin.by_team_id(user.team.id)) != 0 %}
-	            	{% for paste in PasteBin.by_team_id(user.team.id) %}
-	            		<li><a onclick="get_paste('{{ paste.uuid }}')" href="#">{{ paste.name }}</a></li>
-	            	{% end %}
-	            {% else %}
-	            	<li><a href="#">EMPTY</a></li>
-	            {% end %}
+            	{% from libs.ConfigManager import ConfigManager %}
+            	{% if ConfigManager.Instance().use_teams %}
+	            	<li class="nav-header">Team Shares</li>
+	            	{% from models import PasteBin %}
+	            	{% if len(PasteBin.by_team_id(user.team.id)) != 0 %}
+		            	{% for paste in PasteBin.by_team_id(user.team.id) %}
+		            		<li><a onclick="get_paste('{{ paste.uuid }}')" href="#">{{ paste.name }}</a></li>
+		            	{% end %}
+		            {% else %}
+		            	<li><a href="#">EMPTY</a></li>
+		            {% end %}
+		        {% else %}
+		        	<li class="nav-header">Shares</li>
+	            	{% from models import PasteBin %}
+	            	{% if len(PasteBin.all()) != 0 %}
+		            	{% for paste in PasteBin.all() %}
+		            		<li><a onclick="get_paste('{{ paste.uuid }}')" href="#">{{ paste.name }}</a></li>
+		            	{% end %}
+		            {% else %}
+		            	<li><a href="#">EMPTY</a></li>
+		            {% end %}
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

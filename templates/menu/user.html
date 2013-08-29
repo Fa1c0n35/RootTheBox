@@ -54,11 +54,14 @@
                           <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu">
+                      {% froms libs.ConfigManager import ConfigManager %}
+                      {% if ConfigManager.Instance().allow_file_upload %}
                           <li>
                               <a href="/user/share/files">
                                   File Sharing
                               </a>
                           </li>
+                      {% end %}
                           <li>
                               <a href="/user/share/pastebin">
                                   PasteBin

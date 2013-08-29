@@ -92,7 +92,7 @@ def setup_script():
 def test():
     print "Test has been fired"
     from setup import XmlGameImporter
-    XmlGameImporter.import_xml_box_files_for_game("sample", 1)
+    XmlGameImporter.import_xml_box_files_for_game("greyhat")
 
 def main(args):
     ''' Call functions in the correct order based on CLI params '''

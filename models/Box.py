@@ -41,7 +41,7 @@ class Box(BaseObject):
 
     uuid = Column(String(36), unique=True, nullable=False, default=lambda: str(uuid4()))
     corporation_id = Column(Integer, ForeignKey('corporation.id'), nullable=False)
-    name = Column(Unicode(16), unique=True, nullable=False)
+    name = Column(Unicode(64), unique=True, nullable=False)
     garbage = Column(String(32), 
         unique=True, 
         nullable=False, 

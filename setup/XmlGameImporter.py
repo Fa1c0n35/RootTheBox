@@ -146,7 +146,7 @@ def move_image_file_and_get_name(filepath):
     return uuid + ext    
     
 #TODO don't use hard-coded game directory, allow for configuration elsewhere
-def import_xml_box_files_for_game(game_name, input_game_level_id):
+def import_xml_box_files_for_game(game_name):
     game_dir = path.abspath('games/' + game_name)
     for curfile in listdir(game_dir):
         if curfile.endswith('.xml'):

@@ -75,10 +75,6 @@ URLs = [
     (r'/avatars/(.*\.(png|jpeg|jpg|gif|bmp))', 
         StaticFileHandler, {'path': 'files/avatars/'}),
 
-    # ShareUploadHandlers - ShareUploadHandlers.py
-    (r'/user/shares/download(.*)', ShareDownloadHandler),
-    (r'/user/share/files', ShareUploadHandler),
-
     # PasteBin - PastebinHandlers.py
     (r'/user/share/pastebin', PasteHandler),
     (r'/user/share/pastebin/create', CreatePasteHandler),
@@ -171,6 +167,15 @@ if config.use_black_market:
         (r'/source_code_market/download', SourceCodeMarketDownloadHandler),
         (r'/swat', SwatHandler)
         
+    ])
+
+# If file uploading is allowed
+
+if config.allow_file_upload:
+    URLs.extend([
+        # ShareUploadHandlers - ShareUploadHandlers.py
+        (r'/user/shares/download(.*)', ShareDownloadHandler),
+        (r'/user/share/files', ShareUploadHandler)
     ])
 
 # If config is set up to use Wall of Sheep, set up handlers accordingly

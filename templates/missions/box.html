@@ -127,7 +127,7 @@
         <div class="container">
             <div class="row">
             {% from libs.ConfigManager import ConfigManager %}
-            {% if ConfigManager.show_box_avatar %}
+            {% if ConfigManager.Instance().show_box_avatar %}
                 <div class="span4">
                     <img src="/avatars/{{ box.avatar }}" class="img-polaroid" />
                 </div>

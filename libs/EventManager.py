@@ -19,7 +19,7 @@ Created on Sep 20, 2012
     limitations under the License.
 '''
 
-
+from libs.ConfigManager import ConfigManager
 from libs.Notifier import Notifier
 from libs.Singleton import Singleton
 from libs.Scoreboard import Scoreboard
@@ -160,32 +160,49 @@ class EventManager(object):
     # [ Team Events ] ------------------------------------------------------
     def create_joined_team_event(self, user):
         ''' Callback when a user joins a team'''
-        message = "%s has joined your team." % user.handle
-        evt_id = Notifier.team_success(user.team, "New Team Member", message)
-        return (self.push_team_notification, {
-            'event_uuid': evt_id, 
-            'team_id': user.team.id
-        })
+        if ConfigManager.use_teams():
+            message = "%s has joined your team." % user.handle
+            evt_id = Notifier.team_success(user.team, "New Team Member", message)
+            return (self.push_team_notification, {
+                'event_uuid': evt_id, 
+                'team_id': user.team.id
+            })
+        else:
+            message = "%s has joined the game." % user.handle
+            evt_id = Notifier.broadcast_success("New Team Member", message)
+            return (self.push_broadcase_notification, {'event_uuid': evt_id})
 
     def create_team_file_share_event(self, user, file_upload):
         ''' Callback when a team file share is created '''
-        message = "%s has shared a file called '%s'" % (
-            user.handle, file_upload.file_name,
-        )
-        evt_id = Notifier.team_success(user.team, "File Share", message)
-        return (self.push_team_notification, {
-            'event_uuid': evt_id, 
-            'team_id': user.team.id
-        })
+        if ConfigManager.use_teams():
+            message = "%s has shared a file called '%s'" % (
+                user.handle, file_upload.file_name,
+            )
+            evt_id = Notifier.team_success(user.team, "File Share", message)
+            return (self.push_team_notification, {
+                'event_uuid': evt_id, 
+                'team_id': user.team.id
+            })
+        else:
+            message = "%s has shared a file called '%s'" % (
+                user.handle, file_upload.file_name,
+            )
+            evt_id = Notifier.broadcast_success("File Share", message)
+            return (self.push_broadcase_notification, {'event_uuid': evt_id})
 
     def create_paste_bin_event(self, user, paste):
         ''' Callback when a pastebin is created '''
-        message = "%s posted to the team paste-bin" % user.handle
-        evt_id = Notifier.team_success(user.team, "Text Share", message)
-        return (self.push_team_notification, {
-            'event_uuid': evt_id, 
-            'team_id': user.team.id
-        })
+        if ConfigManager.use_teams():
+            message = "%s posted to the team paste-bin" % user.handle
+            evt_id = Notifier.team_success(user.team, "Text Share", message)
+            return (self.push_team_notification, {
+                'event_uuid': evt_id, 
+                'team_id': user.team.id
+            })
+        else:
+            message = "%s posted to the team paste-bin" % user.handle
+            evt_id = Notifier.broadcast_success("Text Share", message)
+            return (self.push_broadcase_notification, {'event_uuid': evt_id})
 
     # [ Misc Events ] ------------------------------------------------------
     def create_cracked_password_events(self, cracker, victim, password, value):

@@ -29,7 +29,7 @@ from handlers.BaseHandlers import BaseHandler
 from models import dbsession, User, PasteBin
 from libs.Form import Form
 from libs.SecurityDecorators import authenticated
-
+from libs.ConfigManager import ConfigManager
 
 class PasteHandler(BaseHandler):
     ''' Renders the main page '''
@@ -81,7 +81,8 @@ class DisplayPasteHandler(BaseHandler):
             paste_uuid = self.get_argument("paste_uuid")
             user = self.get_current_user()
             paste = PasteBin.by_uuid(paste_uuid)
-            if paste is None or paste.team_id != user.team.id:
+            teamcheck = paste.team_id != user.team.id if ConfigManager.use_teams else False
+            if paste is None or teamcheck:
                 self.render("pastebin/display.html", errors=["Paste does not exist."], paste=None)
             else:
                 self.render("pastebin/display.html", errors=None, paste=paste)

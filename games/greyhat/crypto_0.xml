@@ -2,14 +2,13 @@
 <box>
 	<level>1</level>
 	<corporation>
-		<name>Cryptographers Anonymous</name> <!-- REQUIRED !-->
-		<description>A global support group for people that enjoy cryptography a little more than they should</description> <!-- REQUIRED !-->
+		<name>Cryptographers Anonymous</name>
+		<description>A global support group for people that enjoy cryptography a little more than they should</description>
 	</corporation>
-	<name>Introduction to Crypto</name> <!-- REQUIRED & UNIQUE !-->
-	<difficulty>Easy</difficulty> <!-- REQUIRED !-->
-	<avatar>crypto_0_avatar.jpg</avatar> <!-- REQUIRED !-->
+	<name>Introduction to Crypto</name>
+	<difficulty>Easy</difficulty>
+	<avatar>crypto_0_avatar.jpg</avatar>
 	<description>
-
 As per Wikipedia, cryptography is "the practice and study of techniques for secure communication in the presence of third parties." On a basic level, it is the idea of encoding data in such a way that (hopefully) ensures that only allowed parties can view the data. It is the digital version of the physical safe!
 
 The foundations of modern cryptography are many times more complex than historical attempts at cryptography - modern crypto uses number theory and mathematical proofs to guarantee certain levels of privacy. However, crypto has been used as far back as 1,900 B.C. to help secure information from prying eyes!
@@ -37,14 +36,13 @@ It's as simple as that! Needless to say, a Caesar cipher does not provide very m
 --- Flags ---
 
 1 - Apply a Caesar cipher of -3 on the phrase 'thisshouldbefun'
-
-	</description> <!-- REQUIRED !-->
-	<flags> <!-- REQUIRED !-->
-		<flag> <!-- REQUIRED !-->
-			<name>Caesar -3</name> <!-- REQUIRED & UNIQUE FOR BOX !-->
-			<token>QEFPPELRIAYBCRK</token> <!-- REQUIRED !-->
-			<description>Caesar cipher of -3 on 'thisshouldbefun'</description> <!-- REQUIRED !-->
-			<value>50</value> <!-- REQUIRED !-->
+	</description>
+	<flags>
+		<flag>
+			<name>Caesar -3</name>
+			<token>QEFPPELRIAYBCRK</token>
+			<description>Caesar cipher of -3 on 'thisshouldbefun'</description>
+			<value>50</value>
 		</flag>
 	</flags>
 	<resources>

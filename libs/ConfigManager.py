@@ -355,6 +355,11 @@ class ConfigManager(object):
     def show_box_avatar(self):
         ''' Whether to show the box avatar on the box screen '''
         return self.config.getboolean('Experimental', 'show_box_avatar')
+    
+    @property
+    def allow_file_upload(self):
+        ''' Whether to allow for file upload '''
+        return self.config.getboolean('Experimental', 'allow_file_upload')
 
     def __postgresql__(self):
         ''' 
