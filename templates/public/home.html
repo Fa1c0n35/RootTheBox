@@ -6,8 +6,8 @@
 	<div class="container">
 		<div class="well" style="background-image: url(/static/images/rtb2.png); background-size:contain; background-size:100%; width:842px;height:596px;">
 			{% from libs.ConfigManager import ConfigManager %}
-	        <h2>{{ ConfigManager.game_slogan }}</h2>
-	        <pre>{{ ConfigManager.game_description }}</pre>
+	        <h2>{{ ConfigManager.Instance().game_slogan }}</h2>
+	        <pre>{{ ConfigManager.Instance().game_description }}</pre>
 		</div>
 	</div>
 {% end %}

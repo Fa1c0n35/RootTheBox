@@ -4,7 +4,9 @@
 
 {% block content %}
 	<div class="container">
-		{% froms models.Sponsor import Sponsor %}
+		<h1>Sponsors</h1>
+		<br />
+		{% from models.Sponsor import Sponsor %}
 		{% for cursponsor in Sponsor.all() %}
 			<div class="well">
 				<h4 style='text-align:center'>- {{ cursponsor.name }} -</h4>
@@ -15,7 +17,7 @@
         				{{ cursponsor.description }}
         				<br />
                         <br />
-        				For more information please visit <a href='{{ cursponsor.url }}' target='_blank'>{{ box.sponsor.url }}</a>
+        				For more information please visit <a href='{{ cursponsor.url }}' target='_blank'>{{ cursponsor.url }}</a>
         			</div>
         		</div>
 			</div>
