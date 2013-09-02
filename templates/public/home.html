@@ -5,7 +5,7 @@
 {% block content %}
 	<style type="text/css">
 		@keyframes welcome {
-			0% {background-color:#000000; height:2px;}
+			0% {background-color:#000000; height:5px; padding:0px; margin:0px;}
 			5% {background-color:#33b5e5;}
 			10% {background-color:#000000;}
 			15% {background-color:#33b5e5;}
@@ -18,7 +18,7 @@
 		}
 		
 		@-webkit-keyframes welcome {
-			0% {background-color:#000000; height:2px;}
+			0% {background-color:#000000; height:5px; padding:0px; margin:0px;}
 			5% {background-color:#33b5e5;}
 			10% {background-color:#000000;}
 			15% {background-color:#33b5e5;}
@@ -29,14 +29,20 @@
 			40% {background-color:#000000; height:2px;}
 			100% {height:566px; background-color:rgba(0,0,0,0.75);}
 		}
+		
+		@keyframes appear {
+			0% {display:none; opacity:0.0;}
+			1% {display:block; opacity:0.01;}
+			100% {display:block; opacity:1.0;}
+		}
     </style>
 	<div class="container">
 		<div class="well" style="background-image: url(/static/images/rtb2.png); background-size:contain; background-size:100%; width:842px;height:596px;">
 			{% from libs.ConfigManager import ConfigManager %}
 			<div class='divWelcomeContainer' style='background-color:rgba(0,0,0,0.75); width:822px; height:566px; padding:10px; animation:welcome; -webkit-animation:welcome;'>
-				<h2>{{ ConfigManager.Instance().game_slogan }}</h2>
+				<h2 style='animation:appear 2s; animation-delay:5s;-webkit-animation:appear 2s; -webkit-animation-delay:5s;'>{{ ConfigManager.Instance().game_slogan }}</h2>
 				<br/>
-				<pre>{{ ConfigManager.Instance().game_description }}</pre>
+				<pre style='animation:appear 2s; animation-delay:5.5s;-webkit-animation:appear 2s; -webkit-animation-delay:5.5s;'>{{ ConfigManager.Instance().game_description }}</pre>
 			</div>
 		</div>
 	</div>
