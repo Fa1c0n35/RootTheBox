@@ -7,28 +7,45 @@
 		<h1>Contribute to Grey H@t RTB</h1>
 		<br />
 		<div class="well">
-			So you'd like to help contribute to the Grey H@t Root the Box?! That's great! We'd love to have your help!
+			<p>
+				So you'd like to help contribute to the Grey H@t Root the Box?! That's great! We'd love to have your help!
+				We've even made efforts to make contributing to the project as easy as possible! At this point in time, if you'd like to contribute,
+				you must create an entire 'box', or group of flags, at a time. This box can be specified using a simple XML schema. The schema includes
+				the following information:
+			</p>
+			<h5>Box</h5>
+			<ul>
+				<li>level - The level that the box should be added to. Valid values are 0 - 9. (REQ'D)</li>
+				<li>name - The name to give the box. (REQ'D)</li>
+				<li>difficulty - A string representing the difficulty of the level (e.g. Easy, Medium Hard). (REQ'D)</li>
+				<li>avatar - The name of an image file (jpeg, png) to associate with the box. Aspect ratio should be 2w*1h. This image file must be supplied alongside the XML document. (REQ'D)</li>
+				<li>description - A description of the box and the flags contained within it. This is the meat of the challenges, and should contain enough instruction for users to obtain the contained flags without requiring additional instruction. (REQ'D)</li>
+			<ul>
+			<h5>Sponsor</h5>
+			<p>
+				TEST
+			</p>
 			<pre>
-<?xml version="1.0"?>
-<box>
-	<level>1</level>
-	<sponsor>
-		<name>lavalamp</name>
-		<description>
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;box&gt;
+	&lt;level&gt;1&lt;/level&gt;
+	&lt;sponsor&gt;
+		&lt;name&gt;lavalamp&lt;/name&gt;
+		&lt;description&gt;
 			Hacker by day, hacker by night, lavalamp is an avid computing enthusiast and security analyst.
-		</description>
-		<url>https://greyhat.gatech.edu</url>
-		<logo>lavalamp.jpg</logo>
-	</sponsor>
-	<corporation>
-		<name>Cryptographers Anonymous</name>
-		<description>A global support group for people that enjoy cryptography a little more than they should</description>
-	</corporation>
-	<name>Introduction to Crypto</name>
-	<difficulty>Easy</difficulty>
-	<avatar>crypto_0_avatar.jpg</avatar>
-	<description>
-As per Wikipedia, cryptography is "the practice and study of techniques for secure communication in the presence of third parties." On a basic level, it is the idea of encoding data in such a way that (hopefully) ensures that only allowed parties can view the data. It is the digital version of the physical safe!
+		&lt;/description&gt;
+		&lt;url&gt;https://greyhat.gatech.edu&lt;/url&gt;
+		&lt;logo&gt;lavalamp.jpg&lt;/logo&gt;
+	&lt;/sponsor&gt;
+	&lt;corporation&gt;
+		&lt;name&gt;Cryptographers Anonymous&lt;/name&gt;
+		&lt;description&gt;A global support group for people that enjoy cryptography a little more than they should&lt;/description&gt;
+	&lt;/corporation&gt;
+	&lt;name&gt;Introduction to Crypto&lt;/name&gt;
+	&lt;difficulty&gt;Easy&lt;/difficulty&gt;
+	&lt;avatar&gt;crypto_0_avatar.jpg&lt;/avatar&gt;
+	&lt;description&gt;
+As per Wikipedia, cryptography is &quot;the practice and study of techniques for secure communication in the presence of third parties.&quot; On a basic level, it is the idea of encoding data in such a way that (hopefully) ensures that only allowed parties can view the data. It is the digital version of the physical safe!
 
 The foundations of modern cryptography are many times more complex than historical attempts at cryptography - modern crypto uses number theory and mathematical proofs to guarantee certain levels of privacy. However, crypto has been used as far back as 1,900 B.C. to help secure information from prying eyes!
 
@@ -38,12 +55,12 @@ The flags on this box cover some of the most elementary and well-known ciphers o
 
 Chances are that you have used a Caesar cipher at some point in your life. If you've ever seen the movie 'A Christmas Story,' you've seen one in action! A Caesar cipher is where the alphabet in which a message is written is shifted in a direction by a number of spaces. For instance, a Caesar cipher of +5 would take each letter of the alphabet and replace it with the letter that is 5 spots to the right of it. This would result in the following transformations:
 
-A -> F
-B -> G
-C -> H
-D -> I
+A -&gt; F
+B -&gt; G
+C -&gt; H
+D -&gt; I
 ...
-Z -> E
+Z -&gt; E
 
 Using this Caesar cipher of +5, let's encrypt the phrase 'helloworld' with it:
 
@@ -55,32 +72,32 @@ It's as simple as that! Needless to say, a Caesar cipher does not provide very m
 --- Flags ---
 
 1 - Apply a Caesar cipher of -3 on the phrase 'thisshouldbefun'
-	</description>
-	<flags>
-		<flag>
-			<name>Caesar -3</name>
-			<token>QEFPPELRIAYBCRK</token>
-			<description>Caesar cipher of -3 on 'thisshouldbefun'</description>
-			<value>50</value>
-		</flag>
-	</flags>
-	<resources>
-		<resource>
-			<url>http://www.studentpulse.com/articles/41/a-brief-history-of-cryptography</url>
-			<tag>A Brief History of Cryptography</tag>
-			<description>
+	&lt;/description&gt;
+	&lt;flags&gt;
+		&lt;flag&gt;
+			&lt;name&gt;Caesar -3&lt;/name&gt;
+			&lt;token&gt;QEFPPELRIAYBCRK&lt;/token&gt;
+			&lt;description&gt;Caesar cipher of -3 on 'thisshouldbefun'&lt;/description&gt;
+			&lt;value&gt;50&lt;/value&gt;
+		&lt;/flag&gt;
+	&lt;/flags&gt;
+	&lt;resources&gt;
+		&lt;resource&gt;
+			&lt;url&gt;http://www.studentpulse.com/articles/41/a-brief-history-of-cryptography&lt;/url&gt;
+			&lt;tag&gt;A Brief History of Cryptography&lt;/tag&gt;
+			&lt;description&gt;
 				Details about the history of cryptography, motivations for using it, and crypto's role in modern life.
-			</description>
-		</resource>
-		<resource>
-			<url>http://en.wikipedia.org/wiki/Caesar_cipher</url>
-			<tag>Wikipedia on Caesar Cipher</tag>
-			<description>
+			&lt;/description&gt;
+		&lt;/resource&gt;
+		&lt;resource&gt;
+			&lt;url&gt;http://en.wikipedia.org/wiki/Caesar_cipher&lt;/url&gt;
+			&lt;tag&gt;Wikipedia on Caesar Cipher&lt;/tag&gt;
+			&lt;description&gt;
 				An in-depth explanation of what the Caesar cipher is, how it works, what it's been used for, and how to break it.
-			</description>
-		</resource>
-	</resources>
-</box>
+			&lt;/description&gt;
+		&lt;/resource&gt;
+	&lt;/resources&gt;
+&lt;/box&gt;
 			</pre>
 		</div>
 	</div>

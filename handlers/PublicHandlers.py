@@ -297,7 +297,7 @@ class ContributeHandler(BaseHandler):
     
     def get(self, *args, **kwargs):
         ''' Renders the contribute page '''
-        self.render('public/about.html')
+        self.render('public/contribute.html')
 
 class SponsorHandler(BaseHandler):
     
