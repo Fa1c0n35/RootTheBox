@@ -156,13 +156,14 @@ class PurchaseHintHandler(BaseHandler):
         dbsession.add(team)
         dbsession.flush()
 
-    def render_page(self, box, errors=[]):
+    def render_page(self, box, insuccess=False, errors=[]):
         ''' Wrapper to .render() to avoid duplicate code '''
         user = self.get_current_user()
         self.render('missions/box.html', 
             box=box, 
             team=user.team,
             errors=errors,
+            success=insuccess,
         )
 
 
