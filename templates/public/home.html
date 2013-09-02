@@ -35,11 +35,17 @@
 			1% {display:block; opacity:0.01;}
 			100% {display:block; opacity:1.0;}
 		}
+		
+		@-webkit-keyframes appear {
+			0% {display:none; opacity:0.0;}
+			1% {display:block; opacity:0.01;}
+			100% {display:block; opacity:1.0;}
+		}
     </style>
 	<div class="container">
 		<div class="well" style="background-image: url(/static/images/rtb2.png); background-size:contain; background-size:100%; width:842px;height:596px;">
 			{% from libs.ConfigManager import ConfigManager %}
-			<div class='divWelcomeContainer' style='background-color:rgba(0,0,0,0.75); width:822px; height:566px; padding:10px; animation:welcome 5s; -webkit-animation:welcome;'>
+			<div class='divWelcomeContainer' style='background-color:rgba(0,0,0,0.75); width:822px; height:566px; padding:10px; animation:welcome 5s; -webkit-animation:welcome 5s;'>
 				<div style='height:auto; width:auto;animation:appear 2s; animation-delay:5s;-webkit-animation:appear 2s; -webkit-animation-delay:5s;'>
 					<h2>{{ ConfigManager.Instance().game_slogan }}</h2>
 				</div>
