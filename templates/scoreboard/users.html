@@ -24,52 +24,30 @@
     				<tbody id='hacker_table'>
     					{% for index, team in enumerate(Team.ranks()) %}
 	    					<tr>
-	    						<td>
+	    						<td style='vertical-align:middle' >
 	    							{{ index + 1 }}
 	    						</td>
-	    						<td>
-	    							<div class='divAvatarHolder' style="background-repeat:no-repeat; background-position: center center; background-size: 380px auto; background-image: url('/avatars/{{ team.members[0].avatar }}'); height:75px; margin-top:10px">
+	    						<td style='vertical-align:middle' >
+	    							<div class='divAvatarHolder' style="background-repeat:no-repeat; background-position: left center; background-size: auto 50px; background-image: url('/avatars/{{ team.members[0].avatar }}'); height:50px;">
 	    							</div>
 	    						</td>
-	    						<td>
+	    						<td style='vertical-align:middle' >
 	    							{{ team.name }}
 	    						</td>
-	    						<td>
+	    						<td style='vertical-align:middle' >
 	    							{{ len(team.flags) }}
-	    						<td/>
-	    						<td>
+	    						</td>
+	    						<td style='vertical-align:middle' >
 	    							${{ team.money }}
-	    						<td/>
-	    						<td>
+	    						</td>
+	    						<td style='vertical-align:middle' >
 	    							{{ team.levels[-1].number }}
-	    						<td/>
+	    						</td>
 	    					<tr/>
     					{% end %}
     				</tbody>
     			</table>
     		</div>
     	</div>
-    	{% for index, team in enumerate(Team.ranks()) %}
-    		{% if index%2 is 0 %}
-    			<div class='row'>
-    		{% end %}
-	    	<div class="span6">
-	    	    <div id="{{ team.uuid }}" class='well'>
-	    		    <h2 style="display:inline;">{{ team.name }}</h2>
-	    		    <br />
-	    	    	<h4 style="display:inline;">"{{ team.motto }}"</h4>
-	    	    	{% set user = team.members[0] %}
-	    	    	<div class='divImageContainer' style="background-repeat:no-repeat; background-position: center center; background-size: 380px auto; background-image: url('/avatars/{{ user.avatar }}'); height:200px; margin-top:10px"></div>
-	    	    	<div class='divStatsContainer' style='margin-top:10px'>
-						<strong>Current Level:</strong> {{ team.levels[-1].number }} <br />
-						<strong>Bank Account:</strong> ${{ team.money }} <br />
-						<strong>Flags Captured:</strong> {{ len(team.flags) }}<br />
-	    	    	</div>
-	    		</div>
-	    	</div>
-	    	{% if index%2 is not 0 %}
-	    		</div>
-	    	{% end %}
-    	{% end %}
     </div>
 {% end %}
