@@ -46,13 +46,13 @@
 		<div class="well" style="background-image: url(/static/images/rtb2.png); background-size:contain; background-size:100%; width:842px;height:596px;">
 			{% from libs.ConfigManager import ConfigManager %}
 			<div class='divWelcomeContainer' style='background-color:rgba(0,0,0,0.75); width:822px; height:566px; padding:10px; animation:welcome 5s; -webkit-animation:welcome 5s;'>
-				<div style='display:none; height:auto; width:auto;animation:appear 2s forwards; animation-delay:5s;-webkit-animation:appear 2s forwards; -webkit-animation-delay:5s;'>
-					<h2>{{ ConfigManager.Instance().game_slogan }}</h2>
-				</div>
+				<h2 style='opacity:0; height:auto; width:auto;animation:appear 2s forwards; animation-delay:5s;-webkit-animation:appear 2s forwards; -webkit-animation-delay:5s;'>
+					{{ ConfigManager.Instance().game_slogan }}
+				</h2>
 				<br/>
-				<div style='display:none; height:auto; width:auto; margin:0; padding:0;animation:appear 2s forwards; animation-delay:5.5s;-webkit-animation:appear 2s forwards; -webkit-animation-delay:5.5s;'>
-					<pre>{{ ConfigManager.Instance().game_description }}</pre>
-				</div>
+				<pre style='opacity:0; height:auto; width:auto; margin:0; padding:0;animation:appear 2s forwards; animation-delay:5.5s;-webkit-animation:appear 2s forwards; -webkit-animation-delay:5.5s;'>
+					{{ ConfigManager.Instance().game_description }}
+				</pre>
 			</div>
 		</div>
 	</div>
