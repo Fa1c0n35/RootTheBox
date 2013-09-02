@@ -8,6 +8,47 @@
     	<h1>Hackers</h1>
     	<br />
     	{% from models import Team %}
+    	<div class='row'>
+    		<div class='well'>
+    			<table class='table table-striped'>
+    				<thead>
+    					<tr>
+    						<th>#</th>
+    						<th>Avatar</th>
+    						<th>Name</th>
+    						<th>Flags Captured</th>
+    						<th>Back Account</th>
+    						<th>Game Level</th>
+    					</tr>
+    				</thead>
+    				<tbody id='hacker_table'>
+    					{% for index, team in enumerate(Team.ranks()) %}
+	    					<tr>
+	    						<td>
+	    							{{ index + 1 }}
+	    						</td>
+	    						<td>
+	    							<div class='divAvatarHolder' background-repeat:no-repeat; background-position: center center; background-size: 380px auto; background-image: url('/avatars/{{ team.members[0].avatar }}'); height:75px; margin-top:10px">
+	    							</div>
+	    						</td>
+	    						<td>
+	    							{{ team.name }}
+	    						</td>
+	    						<td>
+	    							{{ len(team.flags) }}
+	    						<td/>
+	    						<td>
+	    							${{ team.money }}
+	    						<td/>
+	    						<td>
+	    							{{ team.levels[-1].number }}
+	    						<td/>
+	    					<tr/>
+    					{% end %}
+    				</tbody>
+    			</table>
+    		</div>
+    	</div>
     	{% for index, team in enumerate(Team.ranks()) %}
     		{% if index%2 is 0 %}
     			<div class='row'>
