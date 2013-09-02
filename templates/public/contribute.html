@@ -7,12 +7,21 @@
 		<h1>Contribute to Grey H@t RTB</h1>
 		<br />
 		<div class="well">
+			<h2>Table of Contents</h2>
+			<ul>
+				<li><a href='#start'>Getting Started</a></li>
+				<li><a href='#dataobjects'>XML Data Objects</a></li>
+				<li><a href='#sample'>Sample XML File</a></li>
+				<li><a href='#additional'>Additional Schema Information</a></li>
+				<li><a href='#done'>Who to Contact</a></li>
+			</ul>
+			<h2 name='start'>Getting Started</h2>
 			<p>
 				So you'd like to help contribute to the Grey H@t Root the Box?! That's great! We'd love to have your help!
 				We've even made efforts to make contributing to the project as easy as possible! At this point in time, if you'd like to contribute,
-				you must create an entire 'box', or group of flags, at a time. This box can be specified using a simple XML schema. The schema includes
-				the following information:
+				you must create an entire 'box', or group of flags, at a time. This box can be specified using a simple XML schema.
 			</p>
+			<h2 name='dataobjects'>XML Data Objects</h2>
 			<h5>Box</h5>
 			<ul>
 				<li>level - The level that the box should be added to. Valid values are 0 - 9. (REQ'D)</li>
@@ -20,11 +29,38 @@
 				<li>difficulty - A string representing the difficulty of the level (e.g. Easy, Medium Hard). (REQ'D)</li>
 				<li>avatar - The name of an image file (jpeg, png) to associate with the box. Aspect ratio should be 2w*1h. This image file must be supplied alongside the XML document. (REQ'D)</li>
 				<li>description - A description of the box and the flags contained within it. This is the meat of the challenges, and should contain enough instruction for users to obtain the contained flags without requiring additional instruction. (REQ'D)</li>
-			<ul>
+				<li>sponsor - If the box is sponsored, this will contain information regarding the box's sponsor. Sponsors can be individuals or organizations.</li>
+				<li>corporation - The corporation that the box should be affiliated with. Logically, this is just a grouping of boxes (for instance, all crypto-based boxes should have the corporation named 'Introduction to Crypto' listed here). (REQ'D)</li>
+				<li>flags - A list of flag objects to associate with the box. (REQ'D)</li>
+				<li>resources - A list of resource objects to associated with the box. These resources should be links to pages containing information regarding the box's challenges.</li>
+			</ul>
 			<h5>Sponsor</h5>
-			<p>
-				TEST
-			</p>
+			<ul>
+				<li>name - The name of the sponsor. (REQ'D)</li>
+				<li>description - Description of the sponsor. (REQ'D)</li>
+				<li>url - A URL where users can get more information about the sponsor. (REQ'D)</li>
+				<li>logo - The name of an image file (jpeg, png) to associate with the sponsor. (REQ'D)</li>
+			</ul>
+			<h5>Corporation</h5>
+			<ul>
+				<li>name - The name of the corporation to associate with the box. (REQ'D)</li>
+				<li>description - A description of the corporation to associate with the box. (REQ'D)</li>
+			</ul>
+			<h5>Flag</h5>
+			<ul>
+				<li>name - A name to associate with the flag. (REQ'D)</li>
+				<li>token - The token that must be submitted to capture the flag. (REQ'D)</li>
+				<li>description - A short description of the flag. (REQ'D)</li>
+				<li>value - A value ranging from 0.0-1.0 the reflects the portion of box points to associate with this flag. The cumulative values across all flags associated with a single box must sum up to 1.0. (REQ'D)</li>
+				<li>case - A boolean depicting whether or not the value supplied in 'token' should be considered case-sensitive.</li>
+			</ul>
+			<h5>Resource</h5>
+			<ul>
+				<li>url - The URL for the resource. (REQ'D)</li>
+				<li>tag - A link text to place on the box page. (REQ'D)</li>
+				<li>description - A detailed description regarding the contents of the page the link points to. (REQ'D)</li>
+			</ul>
+			<h2 name='sample'>Sample XML File</h2>
 			<pre>
 &lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;box&gt;
@@ -79,6 +115,7 @@ It's as simple as that! Needless to say, a Caesar cipher does not provide very m
 			&lt;token&gt;QEFPPELRIAYBCRK&lt;/token&gt;
 			&lt;description&gt;Caesar cipher of -3 on 'thisshouldbefun'&lt;/description&gt;
 			&lt;value&gt;50&lt;/value&gt;
+			&lt;case&gt;False&lt;/case&gt;
 		&lt;/flag&gt;
 	&lt;/flags&gt;
 	&lt;resources&gt;
@@ -99,6 +136,8 @@ It's as simple as that! Needless to say, a Caesar cipher does not provide very m
 	&lt;/resources&gt;
 &lt;/box&gt;
 			</pre>
+			<h2 name='additional'>Additional Schema Information</h2>
+			<h2 name='done'>Who to Contact</h2>
 		</div>
 	</div>
 {% end %}

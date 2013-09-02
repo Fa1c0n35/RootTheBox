@@ -51,6 +51,7 @@ It's as simple as that! Needless to say, a Caesar cipher does not provide very m
 			<token>QEFPPELRIAYBCRK</token>
 			<description>Caesar cipher of -3 on 'thisshouldbefun'</description>
 			<value>50</value>
+			<case>False</case>
 		</flag>
 	</flags>
 	<resources>

@@ -263,13 +263,15 @@ def import_xml_box_file(filepath):
             curflagtoken = curflagnode.find('token').text
             curflagdesc = curflagnode.find('description').text
             curflagvalue = curflagnode.find('value').text
+            curflagcase = curflagnode.find('case').text
             newflag = Flag(
                 name=unicode(curflagname),
                 token=unicode(curflagtoken),
                 is_file=False, #TODO implement file upload stuff
                 description=unicode(curflagdesc),
                 value=abs(int(curflagvalue)),
-                box_id=box.id
+                box_id=box.id,
+                is_case_sensitive=curflagcase[0] == 'T'
             )
             dbsession.add(newflag)
             dbsession.flush()

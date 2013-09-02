@@ -40,6 +40,7 @@ class Flag(BaseObject):
     description = Column(Unicode(256), nullable=False)
     value = Column(Integer, nullable=False)
     is_file = Column(Boolean, default=False)
+    is_case_sensitive = Column(Boolean, default=True)
     box_id = Column(Integer, ForeignKey('box.id'), nullable=False)
 
     @classmethod
