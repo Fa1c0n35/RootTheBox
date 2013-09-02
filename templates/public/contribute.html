@@ -15,52 +15,88 @@
 				<li><a href='#additional'>Additional Schema Information</a></li>
 				<li><a href='#done'>Who to Contact</a></li>
 			</ul>
-			<h2 name='start'>Getting Started</h2>
+			<a name='start'><h2>Getting Started</h2></a>
 			<p>
 				So you'd like to help contribute to the Grey H@t Root the Box?! That's great! We'd love to have your help!
 				We've even made efforts to make contributing to the project as easy as possible! At this point in time, if you'd like to contribute,
 				you must create an entire 'box', or group of flags, at a time. This box can be specified using a simple XML schema.
+				<br/><br/>
+				In order to contribute, take a look at the XML data objects described below and the sample XML file. From these, you should be able to produce
+				an XML file that is valid for our system. Once you have created a valid XML file and have the necessary image files to go along with it,
+				get in touch with any of the individuals listed in the <a href='#done'>who to contact</a> section of this page.
+				<br/><br/>
+				Please pay special attention to the information listed under <a href='#additional>additional schema information</a>. If there are issues with
+				importing your XML file, they will likely be due to items listed in this section!
 			</p>
-			<h2 name='dataobjects'>XML Data Objects</h2>
+			<a name='dataobjects'><h2>XML Data Objects</h2></a>
+			<p>
+				XML files that describe boxes in the Grey H@t RTB contain all of the following objects. All of these values should be supplied according to the
+				specification below. An example of a file containing all of the necessary information for uploading into the Grey H@t RTB can be found in the 
+				<a href='#sample'>sample XML file</a> section.
+			</p>
 			<h5>Box</h5>
+			<p>
+				Conceptually, the box is the container for a series of challenges. This is the root object that will be contributed for a single XML file.
+			</p>
 			<ul>
-				<li>level - The level that the box should be added to. Valid values are 0 - 9. (REQ'D)</li>
-				<li>name - The name to give the box. (REQ'D)</li>
-				<li>difficulty - A string representing the difficulty of the level (e.g. Easy, Medium Hard). (REQ'D)</li>
-				<li>avatar - The name of an image file (jpeg, png) to associate with the box. Aspect ratio should be 2w*1h. This image file must be supplied alongside the XML document. (REQ'D)</li>
-				<li>description - A description of the box and the flags contained within it. This is the meat of the challenges, and should contain enough instruction for users to obtain the contained flags without requiring additional instruction. (REQ'D)</li>
+				<li>level - The level that the box should be added to. Valid values are 0 - 9. </li>
+				<li>name - The name to give the box. </li>
+				<li>difficulty - A string representing the difficulty of the level (e.g. Easy, Medium Hard). </li>
+				<li>avatar - The name of an image file (jpeg, png) to associate with the box. Aspect ratio should be 2w*1h. This image file must be supplied alongside the XML document. </li>
+				<li>description - A description of the box and the flags contained within it. This is the meat of the challenges, and should contain enough instruction for users to obtain the contained flags without requiring additional instruction. </li>
 				<li>sponsor - If the box is sponsored, this will contain information regarding the box's sponsor. Sponsors can be individuals or organizations.</li>
-				<li>corporation - The corporation that the box should be affiliated with. Logically, this is just a grouping of boxes (for instance, all crypto-based boxes should have the corporation named 'Introduction to Crypto' listed here). (REQ'D)</li>
-				<li>flags - A list of flag objects to associate with the box. (REQ'D)</li>
+				<li>corporation - The corporation that the box should be affiliated with. Logically, this is just a grouping of boxes (for instance, all crypto-based boxes should have the corporation named 'Introduction to Crypto' listed here). </li>
+				<li>flags - A list of flag objects to associate with the box. </li>
 				<li>resources - A list of resource objects to associated with the box. These resources should be links to pages containing information regarding the box's challenges.</li>
 			</ul>
 			<h5>Sponsor</h5>
+			<p>
+				The Grey H@t RTB implementation allows for individuals and organizations to sponsor the box. Sponsors will receive attribution for their work on 
+				the box's page as well as the <a href='/sponsors'>sponsors</a> page.
+			</p>
 			<ul>
-				<li>name - The name of the sponsor. (REQ'D)</li>
-				<li>description - Description of the sponsor. (REQ'D)</li>
-				<li>url - A URL where users can get more information about the sponsor. (REQ'D)</li>
-				<li>logo - The name of an image file (jpeg, png) to associate with the sponsor. (REQ'D)</li>
+				<li>name - The name of the sponsor. </li>
+				<li>description - Description of the sponsor. </li>
+				<li>url - A URL where users can get more information about the sponsor. </li>
+				<li>logo - The name of an image file (jpeg, png) to associate with the sponsor. </li>
 			</ul>
 			<h5>Corporation</h5>
+			<p>
+				Corporations allow for a logical grouping of boxes. For instance, all crypto-based boxes have the corporation 'Cryptographers Anonymous'. This allows
+				for similar challenges to be related across different game levels.
+			</p>
 			<ul>
-				<li>name - The name of the corporation to associate with the box. (REQ'D)</li>
-				<li>description - A description of the corporation to associate with the box. (REQ'D)</li>
+				<li>name - The name of the corporation to associate with the box. </li>
+				<li>description - A description of the corporation to associate with the box. </li>
 			</ul>
 			<h5>Flag</h5>
+			<p>
+				A box can have up to ten flags. How to obtain each of these flags should be described thoroughly in the box's description tag. Capturing a flag
+				is done by supplying a character string through an HTML form on the box page. This string must match the string contained in the 'token' value below.
+			</p>
 			<ul>
-				<li>name - A name to associate with the flag. (REQ'D)</li>
-				<li>token - The token that must be submitted to capture the flag. (REQ'D)</li>
-				<li>description - A short description of the flag. (REQ'D)</li>
-				<li>value - A value ranging from 0.0-1.0 the reflects the portion of box points to associate with this flag. The cumulative values across all flags associated with a single box must sum up to 1.0. (REQ'D)</li>
+				<li>name - A name to associate with the flag. </li>
+				<li>token - The token that must be submitted to capture the flag. </li>
+				<li>description - A short description of the flag. </li>
+				<li>value - A value ranging from 0.0-1.0 the reflects the portion of box points to associate with this flag. The cumulative values across all flags associated with a single box must sum up to 1.0. </li>
 				<li>case - A boolean depicting whether or not the value supplied in 'token' should be considered case-sensitive.</li>
 			</ul>
 			<h5>Resource</h5>
+			<p>
+				We encourage the educational aspect of this project, and as such like to have links to additional resources that have educational material relating
+				to the contents of the current box.
+			</p>
 			<ul>
-				<li>url - The URL for the resource. (REQ'D)</li>
-				<li>tag - A link text to place on the box page. (REQ'D)</li>
-				<li>description - A detailed description regarding the contents of the page the link points to. (REQ'D)</li>
+				<li>url - The URL for the resource. </li>
+				<li>tag - A link text to place on the box page. </li>
+				<li>description - A detailed description regarding the contents of the page the link points to. </li>
 			</ul>
 			<h2 name='sample'>Sample XML File</h2>
+			<p>
+				Below you will see a sample XML file. This file is a VALID file from the perspective of the Grey H@t RTB application, so adhering to the
+				structure of this file is a good place to start for writing your own box! You can also go ahead and <a href='/static/crypto_0.xml' target='_blank'>DOWNLOAD</a>
+				the sample XML file as well!
+			</p>
 			<pre>
 &lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;box&gt;
@@ -136,8 +172,24 @@ It's as simple as that! Needless to say, a Caesar cipher does not provide very m
 	&lt;/resources&gt;
 &lt;/box&gt;
 			</pre>
-			<h2 name='additional'>Additional Schema Information</h2>
-			<h2 name='done'>Who to Contact</h2>
+			<a name='additional'><h2>Additional Schema Information</h2></a>
+			<p>
+				As this project is still a work-in-progress, there are a few things that we note here that would not fit well elsewhere.
+			</p>
+			<ul>
+				<li>The name of the box must be unique to the game! If it is not unique, it will not be uploaded.</li>
+				<li>Images supplied for the box image and sponsor image must be png or jpeg, and must be of roughly the aspect ratio 2:1.</li>
+				<li>Supplying a corporation name that already exists will result in the pre-existing corporation being associated with the box.</li>
+				<li>Supplying a sponsor name that already exists will result in the pre-existing sponsor being associated with the box.</li>
+			</ul>
+			<a name='done'><h2>Who to Contact</h2></a>
+			<p>
+				So you've got your XML file all ready to go and your images properly formatted eh? Great! Get in touch with one of the individuals below
+				to get your box into the Grey H@t RTB project!
+			</p>
+			<ul>
+				<li>Christopher Grayson - cegrayson3@gmail.com</li>
+			</ul>
 		</div>
 	</div>
 {% end %}

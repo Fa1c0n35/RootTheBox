@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<box>
+	<level>1</level>
+	<sponsor>
+		<name>lavalamp</name>
+		<description>
+			Hacker by day, hacker by night, lavalamp is an avid computing enthusiast and security analyst.
+		</description>
+		<url>https://greyhat.gatech.edu</url>
+		<logo>lavalamp.jpg</logo>
+	</sponsor>
+	<corporation>
+		<name>Cryptographers Anonymous</name>
+		<description>A global support group for people that enjoy cryptography a little more than they should</description>
+	</corporation>
+	<name>Introduction to Crypto</name>
+	<difficulty>Easy</difficulty>
+	<avatar>crypto_0_avatar.jpg</avatar>
+	<description>
+As per Wikipedia, cryptography is "the practice and study of techniques for secure communication in the presence of third parties." On a basic level, it is the idea of encoding data in such a way that (hopefully) ensures that only allowed parties can view the data. It is the digital version of the physical safe!
+
+The foundations of modern cryptography are many times more complex than historical attempts at cryptography - modern crypto uses number theory and mathematical proofs to guarantee certain levels of privacy. However, crypto has been used as far back as 1,900 B.C. to help secure information from prying eyes!
+
+The flags on this box cover some of the most elementary and well-known ciphers out there. First, let's take a look at the Caesar (or shift) cipher.
+
+--- Caesar Cipher ---
+
+Chances are that you have used a Caesar cipher at some point in your life. If you've ever seen the movie 'A Christmas Story,' you've seen one in action! A Caesar cipher is where the alphabet in which a message is written is shifted in a direction by a number of spaces. For instance, a Caesar cipher of +5 would take each letter of the alphabet and replace it with the letter that is 5 spots to the right of it. This would result in the following transformations:
+
+A -> F
+B -> G
+C -> H
+D -> I
+...
+Z -> E
+
+Using this Caesar cipher of +5, let's encrypt the phrase 'helloworld' with it:
+
+'helloworld' - original
+'mjqqtbtwqi' - encrypted with Caesar cipher of +5
+
+It's as simple as that! Needless to say, a Caesar cipher does not provide very much security!
+
+--- Flags ---
+
+1 - Apply a Caesar cipher of -3 on the phrase 'thisshouldbefun'
+	</description>
+	<flags>
+		<flag>
+			<name>Caesar -3</name>
+			<token>QEFPPELRIAYBCRK</token>
+			<description>Caesar cipher of -3 on 'thisshouldbefun'</description>
+			<value>50</value>
+			<case>False</case>
+		</flag>
+	</flags>
+	<resources>
+		<resource>
+			<url>http://www.studentpulse.com/articles/41/a-brief-history-of-cryptography</url>
+			<tag>A Brief History of Cryptography</tag>
+			<description>
+				Details about the history of cryptography, motivations for using it, and crypto's role in modern life.
+			</description>
+		</resource>
+		<resource>
+			<url>http://en.wikipedia.org/wiki/Caesar_cipher</url>
+			<tag>Wikipedia on Caesar Cipher</tag>
+			<description>
+				An in-depth explanation of what the Caesar cipher is, how it works, what it's been used for, and how to break it.
+			</description>
+		</resource>
+	</resources>
+</box>
