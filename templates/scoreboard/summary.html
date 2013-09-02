@@ -27,12 +27,21 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Team</th>
+                        {% from libs.ConfigManager import ConfigManager %}
+                        {% if ConfigManager.Instance().use_teams %}
+                        	<th>Team</th>
+                        {% else %}
+                        	<th>Hacker</th>
+                        {% end %}
                         <th>Flags Captured</th>
-                        <th>Botnet</th>
+                        {% if ConfigManager.Instance().use_bots %}
+                        	<th>Botnet</th>
+                        {% end %}
                         <th>Bank Account</th>
                         <th>Game Level</th>
-                        <th><!-- Details --></th>
+                        {% if ConfigManager.Instance().use_teams %}
+                        	<th><!-- Details --></th>
+                        {% end %}
                     </tr>
                 </thead>
                 <tbody id="summary_table">

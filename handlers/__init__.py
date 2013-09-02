@@ -54,6 +54,7 @@ from handlers.PastebinHandlers import *
 from handlers.ScoreboardHandlers import *
 from handlers.ShareUploadHandlers import *
 from handlers.NotificationHandlers import *
+from handlers.SponsorHandler import *
 
 
 ### Setup cache
@@ -129,6 +130,7 @@ URLs = [
     (r'/about', AboutHandler),
     (r'/', HomePageHandler),
     (r'/robots(|\.txt)', FakeRobotsHandler),
+    (r'/sponsors', SponsorHandler),
 
     # Error handlers - ErrorHandlers.py
     (r'/403', UnauthorizedHandler),

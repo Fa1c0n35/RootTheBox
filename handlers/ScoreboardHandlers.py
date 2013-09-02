@@ -111,8 +111,9 @@ class ScoreboardHistoryHandler(BaseHandler):
         uri = {
             'money': self.money,
             'flags': self.flags,
-            'bots': self.bots,
         }
+        if self.config.use_bots:
+            uri['bots'] = self.bots
         if 1 == len(args) and args[0] in uri:
             uri[args[0]]()
         else:
@@ -137,14 +138,16 @@ class ScoreboardHistoryHandler(BaseHandler):
         self.render('scoreboard/history/flags.html', history=history)
 
     def bots(self):
-        #TODO disable this functionality when bots are not enabled
-        game_history = GameHistory.Instance()
-        history = {}
-        for team in Team.all():
-            history[team.name] = game_history.get_bot_history_by_name(
-                team.name, -30
-            )
-        self.render('scoreboard/history/bots.html', history=history)
+        if self.config.use_bots:
+            game_history = GameHistory.Instance()
+            history = {}
+            for team in Team.all():
+                history[team.name] = game_history.get_bot_history_by_name(
+                    team.name, -30
+                )
+            self.render('scoreboard/history/bots.html', history=history)
+        else:
+            self.render('public/404.html')
 
 class ScoreboardHistorySocketHandler(WebSocketHandler):
 

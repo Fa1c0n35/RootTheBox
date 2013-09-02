@@ -1,0 +1,25 @@
+{% extends "../main.html" %}
+
+{% block title %} Sponsors {% end %}
+
+{% block content %}
+	<div class="container">
+		{% froms models.Sponsor import Sponsor %}
+		{% for cursponsor in Sponsor.all() %}
+			<div class="well">
+				<h4 style='text-align:center'>- {{ cursponsor.name }} -</h4>
+				<div class='divSponsorContainer' style='height:210px; width:auto; overflow:auto; margin-top:25px'>
+        			<div class='divSponsorLogo' style='background-repeat:no-repeat; background-position:center center; background-size:300px auto;
+        			background-image:url("/avatars/{{ cursponsor.logo }}"); width:300px; height:200px; float:left; border:1px solid gray'></div>
+        			<div style='margin-left:20px; width:550px; float:left; padding-top:5px;'>
+        				{{ cursponsor.description }}
+        				<br />
+                        <br />
+        				For more information please visit <a href='{{ cursponsor.url }}' target='_blank'>{{ box.sponsor.url }}</a>
+        			</div>
+        		</div>
+			</div>
+			<br />
+		{% end %}
+	</div>
+{% end %}

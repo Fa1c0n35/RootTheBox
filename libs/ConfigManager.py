@@ -361,6 +361,16 @@ class ConfigManager(object):
         ''' Whether to allow for file upload '''
         return self.config.getboolean('Experimental', 'allow_file_upload')
 
+    @property
+    def game_slogan(self):
+        ''' The slogan to present users on the main page '''
+        return self.config.get("Experimental", "game_slogan")
+    
+    @property
+    def game_description(self):
+        ''' The description of the game to present users on the main page '''
+        return self.config.get("Experimental", "game_description")
+
     def __postgresql__(self):
         ''' 
         Configure to use postgresql, there is not built-in support for postgresql

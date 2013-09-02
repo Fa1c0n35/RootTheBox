@@ -1,16 +1,21 @@
 {% from libs.BotManager import BotManager %}
+{% from libs.ConfigManager import ConfigManager %}
 {% for (index, team) in enumerate(teams) %}
     <tr>
         <td>{{ index }}</td>
         <td>{{ team.name }}</td>
         <td>{{ len(team.flags) }}</td>
-        <td>{{ BotManager.Instance().count_by_team(team) }}<br /></td>
+        {% if ConfigManager.Instance().use_bots %}
+        	<td>{{ BotManager.Instance().count_by_team(team) }}<br /></td>
+        {% end %}
         <td>${{ team.money }}</td>
         <td>{{ team.levels[-1].number }} </td>
+        {% if ConfigManager.Instance().use_teams %}
         <td>
             <a class="btn btn-mini" data-toggle="modal" onclick="window.location='/teams#{{ team.uuid }}'">
                 Team Members &raquo;
             </a>
         </td>
+        {% end %}
     </tr>
 {% end %}
