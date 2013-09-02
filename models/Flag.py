@@ -87,7 +87,10 @@ class Flag(BaseObject):
         if self.is_file:
             return self.token == token
         else:
-            pattern = re.compile(self.token)
+            if self.is_case_sensitive:
+                pattern = re.compile(self.token)
+            else:
+                pattern = re.compile(self.token, re.IGNORECASE)
             return pattern.match(token) is not None
 
     def to_xml(self, parent):

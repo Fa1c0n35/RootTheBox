@@ -71,7 +71,7 @@ else:
 
 URLs = [
     # Static Handlers - StaticFileHandler.py
-    (r'/static/(.*\.(jpg|png|css|js|ico|swf|flv))', 
+    (r'/static/(.*\.(jpg|png|css|js|ico|swf|flv|xml))', 
         StaticFileHandler, {'path': 'static/'}),
     (r'/avatars/(.*\.(png|jpeg|jpg|gif|bmp))', 
         StaticFileHandler, {'path': 'files/avatars/'}),
