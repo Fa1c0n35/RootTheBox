@@ -371,6 +371,11 @@ class ConfigManager(object):
         ''' The description of the game to present users on the main page '''
         return self.config.get("Experimental", "game_description")
 
+    @property
+    def flag_value_depreciation(self):
+        ''' Whether or not flag values will depreciate upon capture '''
+        return self.config.get('Experimental', 'flag_value_depreciation')
+
     def __postgresql__(self):
         ''' 
         Configure to use postgresql, there is not built-in support for postgresql

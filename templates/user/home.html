@@ -5,7 +5,7 @@
 {% block content %}
 	{% include ../notifier.html %}
 	<div class="row">
-		<div class="span5 offset1 well">
+		<div class="span6 offset2 well">
 			<h2>Welcome {{ user.handle }}</h2>
 			<center>
 				<img src="/avatars/{{ user.avatar }}" class="img-polaroid" />
@@ -23,7 +23,7 @@
 				<strong>You are not on a team</strong>
 			{% end %}
 		</div>
-		<div class="span5 offset6 well">
+		<div class="span6 well">
 			<h2 style="display:inline;">Notifications</h2>
 			<h4 style="display:inline;float:right;"><a href="/notifications/all">See All &raquo;</a></h4>
 			<hr>
