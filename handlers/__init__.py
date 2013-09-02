@@ -131,6 +131,7 @@ URLs = [
     (r'/', HomePageHandler),
     (r'/robots(|\.txt)', FakeRobotsHandler),
     (r'/sponsors', SponsorHandler),
+    (r'/contribute', ContributeHandler),
 
     # Error handlers - ErrorHandlers.py
     (r'/403', UnauthorizedHandler),

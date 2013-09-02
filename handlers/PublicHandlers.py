@@ -292,3 +292,15 @@ class AboutHandler(BaseHandler):
     def get(self, *args, **kwargs):
         ''' Renders the about page '''
         self.render('public/about.html')
+        
+class ContributeHandler(BaseHandler):
+    
+    def get(self, *args, **kwargs):
+        ''' Renders the contribute page '''
+        self.render('public/about.html')
+
+class SponsorHandler(BaseHandler):
+    
+    def get(self, *args, **kwargs):
+        ''' Renders the sponsors page '''
+        self.render("public/sponsors.html")
