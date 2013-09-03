@@ -80,7 +80,7 @@ class FlagSubmissionHandler(BaseHandler):
         ''' Check a text submission '''
         token = self.get_argument('token', '')
         if self.attempt_capture(flag, token):
-            self.render_page(flag, insuccess=True)
+            self.render_page(flag)
         else:
             self.render_page(flag, errors=["Invalid flag submission."])
 
@@ -116,7 +116,7 @@ class FlagSubmissionHandler(BaseHandler):
         else:
             return False
 
-    def render_page(self, flag, insuccess=False, errors=[]):
+    def render_page(self, flag, errors=[]):
         ''' Wrapper to .render() to avoid duplicate code '''
         user = self.get_current_user()
         box = Box.by_id(flag.box_id)
@@ -124,7 +124,6 @@ class FlagSubmissionHandler(BaseHandler):
             box=box, 
             team=user.team,
             errors=errors,
-            success=insuccess,
         )
 
 
@@ -156,14 +155,13 @@ class PurchaseHintHandler(BaseHandler):
         dbsession.add(team)
         dbsession.flush()
 
-    def render_page(self, box, insuccess=False, errors=[]):
+    def render_page(self, box, errors=[]):
         ''' Wrapper to .render() to avoid duplicate code '''
         user = self.get_current_user()
         self.render('missions/box.html', 
             box=box, 
             team=user.team,
             errors=errors,
-            success=insuccess,
         )
 
 

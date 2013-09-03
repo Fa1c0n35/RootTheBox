@@ -115,23 +115,14 @@
     <div class="container">
         <h1>{{ box.corporation.name }} - {{ box.name }}</h1>
         <br />
-        {% if errors is not None %}
-        	{% if len(errors) != 0 %}
-	            {% for error in errors %}
-	                <div class="alert alert-error">
-	                    <a class="close" data-dismiss="alert" href="#">×</a>
-	                    <h4 class="alert-heading">ERROR</h4>
-	                    {{ error }}
-	                </div>
-	            {% end %}
-	        {% end %}
-        {% end %}
-        {% if success %}
-			<div class='alert alert-success'>
-				<a class='close' data-dismiss='alert' href='#'>×</a>
-				<h4 class='alert-heading'>SUCCESS!</h4>
-				Congratulations! You successfully submitted a correct flag value!
-			</div>
+        {% if errors is not None and len(errors) != 0 %}
+            {% for error in errors %}
+                <div class="alert alert-error">
+                    <a class="close" data-dismiss="alert" href="#">×</a>
+                    <h4 class="alert-heading">ERROR</h4>
+                    {{ error }}
+                </div>
+            {% end %}
         {% end %}
         <div class="container">
             <div class="row">
