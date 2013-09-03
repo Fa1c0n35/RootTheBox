@@ -3,7 +3,9 @@
 		<a class="brand">PasteBin</a>
 		<ul class="nav">
 			<li><a onclick="create()" href="#">Create</a></li>
-			<li><a onclick="delete_paste('{{ paste.uuid }}')">Delete</a></li>
+			{% if candelete %}
+				<li><a onclick="delete_paste('{{ paste.uuid }}')">Delete</a></li>
+			{% end %}
 		</ul>
 	</div>
 </div>

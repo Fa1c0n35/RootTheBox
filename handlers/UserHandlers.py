@@ -91,7 +91,7 @@ class SettingsHandler(BaseHandler):
                 if ext in ['png', 'jpeg', 'gif', 'bmp']:
                     if os.path.exists(avatar_path):
                         os.unlink(avatar_path)
-                    user.avatar = unicode(newavatar + "." + ext)
+                    user.avatar = unicode(newavatar[:newavatar.rfind('.')] + "." + ext)
                     file_path = str(self.application.settings['avatar_dir'] + '/' + user.avatar)
                     avatar = open(file_path, 'wb')
                     avatar.write(self.request.files['avatar'][0]['body'])

@@ -83,11 +83,11 @@ class DisplayPasteHandler(BaseHandler):
             paste = PasteBin.by_uuid(paste_uuid)
             teamcheck = paste.team_id != user.team.id if self.config.use_teams else False
             if paste is None or teamcheck:
-                self.render("pastebin/display.html", errors=["Paste does not exist."], paste=None)
+                self.render("pastebin/display.html", errors=["Paste does not exist."], paste=None, candelete=False)
             else:
-                self.render("pastebin/display.html", errors=None, paste=paste)
+                self.render("pastebin/display.html", errors=None, paste=paste, candelete=(paste.team_id == user.team.id))
         else:
-            self.render("pastebin/display.html", errors=form.errors, paste=None)
+            self.render("pastebin/display.html", errors=form.errors, paste=None, candelete=False)
 
 
 class DeletePasteHandler(BaseHandler):
