@@ -269,7 +269,7 @@ def import_xml_box_file(filepath):
                 token=unicode(curflagtoken),
                 is_file=False, #TODO implement file upload stuff
                 description=unicode(curflagdesc),
-                value=abs(int(float(curflagvalue) * (float(int(blevel) + 1.0) * 500))),
+                value=abs(int(float(curflagvalue) * (float(blevel) * 500))),
                 box_id=box.id,
                 is_case_sensitive=curflagcase[0] == 'T'
             )
