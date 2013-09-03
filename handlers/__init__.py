@@ -54,7 +54,6 @@ from handlers.PastebinHandlers import *
 from handlers.ScoreboardHandlers import *
 from handlers.ShareUploadHandlers import *
 from handlers.NotificationHandlers import *
-from handlers.SponsorHandler import *
 
 
 ### Setup cache

@@ -269,7 +269,7 @@ def import_xml_box_file(filepath):
                 token=unicode(curflagtoken),
                 is_file=False, #TODO implement file upload stuff
                 description=unicode(curflagdesc),
-                value=abs(int(curflagvalue)),
+                value=abs(int(float(curflagvalue) * (float(int(blevel) + 1.0) * 500))),
                 box_id=box.id,
                 is_case_sensitive=curflagcase[0] == 'T'
             )
@@ -298,6 +298,8 @@ def import_xml_box_file(filepath):
         # And we're done!
         print_info("Box with name '" + bname + "' successfully created!")
         
+    except ValueError as e:
+        print "ValueError thrown: " + str(e)
     except AttributeError as e:
         print "AttributeError thrown: " + str(e)
     except TypeError as e:

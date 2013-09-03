@@ -374,7 +374,7 @@ class ConfigManager(object):
     @property
     def flag_value_depreciation(self):
         ''' Whether or not flag values will depreciate upon capture '''
-        return self.config.get('Experimental', 'flag_value_depreciation')
+        return self.config.getboolean('Experimental', 'flag_value_depreciation')
 
     def __postgresql__(self):
         ''' 
